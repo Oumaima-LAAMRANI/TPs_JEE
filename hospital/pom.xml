@@ -8,11 +8,11 @@
 		<version>3.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>ma.enset</groupId>
-	<artifactId>hospital</artifactId>
+	<groupId>com.example</groupId>
+	<artifactId>Hospital</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>hospital</name>
-	<description>Demo project for Spring Boot</description>
+	<name>Hospital</name>
+	<description>Hospital</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
