@@ -24,7 +24,6 @@ public class Patient {
     @Size(min=4, max = 40)
     private String nom;
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaissance;
     private boolean malade;
     @DecimalMin("100")
