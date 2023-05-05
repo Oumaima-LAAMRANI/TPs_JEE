@@ -1,20 +1,26 @@
 package org.sid.bankaccountservice.web;
 
+import org.sid.bankaccountservice.dto.BankAccountRequestDTO;
+import org.sid.bankaccountservice.dto.BankAccountResponseDTO;
 import org.sid.bankaccountservice.entities.BankAccount;
+import org.sid.bankaccountservice.mappers.AccountMapper;
 import org.sid.bankaccountservice.repositories.BankAccountRepository;
+import org.sid.bankaccountservice.service.AccountService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
 public class AccountRestController {
     private BankAccountRepository bankAccountRepository;
-
-    public AccountRestController(BankAccountRepository bankAccountRepository) {
+    private AccountService accountService;
+    private AccountMapper accountMapper;
+    public AccountRestController(BankAccountRepository bankAccountRepository, AccountService accountService, AccountMapper accountMapper) {
         this.bankAccountRepository = bankAccountRepository;
+        this.accountService = accountService;
+        this.accountMapper = accountMapper;
     }
     @GetMapping("/bankAccounts")
     public List<BankAccount> bankAccounts(){
@@ -26,9 +32,8 @@ public class AccountRestController {
                 .orElseThrow(()->new RuntimeException(String.format("Account %s not found",id)));
     }
     @PostMapping("/bankAccounts")
-    public BankAccount save(@RequestBody BankAccount bankAccount){
-       if (bankAccount.getId()==null) bankAccount.setId(UUID.randomUUID().toString());
-        return  bankAccountRepository.save(bankAccount);
+    public BankAccountResponseDTO save(@RequestBody BankAccountRequestDTO requestDTO){
+       return  accountService.addAccount(requestDTO);
     }
     @PutMapping("/bankAccounts/{id}")
     public BankAccount update(@PathVariable String id, @RequestBody BankAccount bankAccount){
