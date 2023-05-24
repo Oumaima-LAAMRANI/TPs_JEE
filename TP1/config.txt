@@ -1,2 +1,0 @@
-ext.DaoImpl2
-metier.MetierImpl
