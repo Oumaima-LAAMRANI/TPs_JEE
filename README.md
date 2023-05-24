@@ -16,7 +16,6 @@ Bienvenue dans ce référentiel dédié aux activités pratiques du cours d'Arch
 6. 🚀 **Mise en œuvre d'un micro-service** 
 7. ☁️ **Mise en œuvre d'une architecture micro-services avec Spring Cloud** 
 8. 💼 **Projet JEE  Spring Angular - Digital Banking** 
-9. 
 ## 🌐 À propos de moi
 
 N'hésitez pas à me rejoindre sur LinkedIn pour en savoir plus sur mon parcours et mes projets :
